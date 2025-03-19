@@ -1,0 +1,133 @@
+*{box-sizing: border-box;}
+
+body{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.CenterFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+
+    background-color: rgb(255, 239, 215);
+}
+
+.main{
+    height: 80%;
+    width: 80%;
+}
+
+.form-div{
+    display: flex;
+    justify-content: start;
+
+    height: 100%;
+    width: 40%;
+
+    padding: 5% 0% 0% 5%;
+    background-color: white;
+    flex-direction: column;
+}
+
+.side-div{
+    height: 100%;
+    width: 60%;
+    background-image: url("images/loginBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.title{
+    height: 20%;
+    width: 100%;
+    font-size: 3.5rem;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+form{
+    height: 60%;
+    width: 100%;
+}
+
+.in-form{
+    height: 15%;
+    width: 100%;
+
+    margin: 1.2rem 0rem;
+}
+
+.in-form > div{
+    height: 40%;
+    width: 100%;
+
+    font-size: 1.3rem;
+    color: black;
+}
+
+.in-form > input{
+    height: 60%;
+    width: 90%;
+
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid gray;
+}
+
+.submit-div{
+    height: 20%;
+    width: 90%;
+}
+
+.submit-div > button{
+    color: black;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+
+.submit-div > button {
+    background-color: #a8ff44;
+    color: #fff;
+    position: relative;
+    width: 150px;
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 1;
+    letter-spacing: 1px;
+    box-shadow: #a8ff44 0px 7px 2px, #000 0px 8px 5px;
+}
+  
+.submit-div > button:hover {
+    opacity: 0.8;
+}
+  
+.submit-div > button:active {
+    top: 4px;
+    box-shadow: #a8ff44 0px 3px 2px,#000 0px 3px 5px;
+}
+
+.sign-up-link{
+    height: 20%;
+    width: 90%;
+}
+
+.sign-up-link > a{
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+}

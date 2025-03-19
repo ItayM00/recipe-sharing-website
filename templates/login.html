@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
+</head>
+<body>
+
+    <div class="CenterFlex container">
+        <div class="nav-bar">
+
+        </div>
+        <div class="CenterFlex main">
+            <div class="form-div">
+                <div class="title">Sign in</div>
+                <form action="http://localhost:5000/login" method="post">
+                    <div class="in-form">
+                        <div>Username:</div>
+                        <input type="text" name="username_entry" placeholder="username" required>
+                    </div>
+                    <div class="in-form">
+                        <div>password:</div>
+                        <input type="password" name="password_entry" placeholder="password" required/>
+                    </div>
+                    <div class="CenterFlex submit-div"><input type="submit" value="submit" placeholder="Sign in"></div>
+                </form>
+                <div class="CenterFlex sign-up-link"><a href="http://localhost:5000/signUp">Dont have an account? Sign Up here</a></div>
+            </div>
+            <div class="side-div"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

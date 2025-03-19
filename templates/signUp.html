@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signUp.css') }}">
+    <script defer src="{{ url_for('static', filename='js/signUp.js') }}"></script>
+</head>
+<body>
+
+    <div class="CenterFlex container">
+        <div class="nav-bar">
+
+        </div>
+        <div class="CenterFlex main">
+            <div class="form-div">
+                <div class="title">Sign Up</div>
+                <form id="signupForm" action="http://localhost:5000/signUp" method="post">
+                    <div class="in-form">
+                        <div>Username:</div>
+                        <input id="username_entry" type="text" name="username_entry" placeholder="username" required>
+                    </div>
+                    <div class="in-form">
+                        <div>Email:</div>
+                        <input id="email_entry" type="email" name="email_entry" placeholder="email" required>
+                    </div>
+                    <div class="in-form">
+                        <div>password:</div>
+                        <input id="password_entry" type="password" name="password_entry" placeholder="password" required/>
+                    </div>
+                    <div class="in-form">
+                        <div>confirm password:</div>
+                        <input id="confirm_password_entry" type="password" name="confirm_password_entry" placeholder="confirm password" required/>
+                    </div>
+                    <div class="CenterFlex submit-div"><button type="submit" value="submit">Sign in</button></div>
+                </form>
+                <div class="CenterFlex sign-up-link"><a href="http://localhost:5000/login">Already have an account? Sign In here</a></div>
+            </div>
+            <div class="side-div"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
