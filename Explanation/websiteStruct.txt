@@ -2,7 +2,7 @@ Website Structure-
 
 app.py → The main Flask app that initializes everything.
 config.py → Keeps database credentials and app settings separate (useful for security).
-requirements.txt → List of dependencies (so others can install them using pip install -r requirements.txt).
+requirements.txt → List of dependencies (you can install them using pip install -r requirements.txt).
 run.py → A script to start the app (python run.py).
 
 
@@ -23,15 +23,11 @@ models/ → Database logic (queries, models).
     user.py → Handles user-related database functions.
     post.py → Example of another model (e.g., for blog posts).
 
-database/ → Manages the MySQL database setup.
-    db.py → The connection logic to MySQL.
-    schema.sql → SQL file that contains table definitions (helpful for re-creating the database).
+database/ → Manages the MongoDB database setup.
+    db.py → The connection logic to MongoDB.
 
-logs/ → Keeps logs for debugging purposes.
 
-How Does This Help?
 Scalability: If you want to add more features, you just add more route files or models instead of modifying app.py.
 
 Maintainability: If you need to change CSS, you don’t have to scroll through a huge file—you just edit layout.css or forms.css.
 
-Security: Keeping database credentials in config.py helps prevent accidental exposure.
