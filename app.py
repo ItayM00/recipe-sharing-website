@@ -4,13 +4,17 @@
 from flask import Flask
 from routes import bluprints
 
-app = Flask(__name__)
-app.secret_key = "thesupersecretkeyofitay"
+def create_flask_app():
+
+    app = Flask(__name__)
+    app.secret_key = "thesupersecretkeyofitay"
 
 
-for bp in bluprints:
-    app.register_blueprint(bp)
+    for bp in bluprints:
+        app.register_blueprint(bp)
+
+    app.run(debug=True)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    create_flask_app()
