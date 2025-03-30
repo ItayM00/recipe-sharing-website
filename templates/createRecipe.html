@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Master</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/createRecipe.css') }}">
+    <script defer src="{{ url_for('static', filename='js/createRecipe.js') }}"></script>
+</head>
+<body>
+
+    <form action="http://localhost:5000/storeRecipe" method="post">
+        <input type="text" name="title" placeholder="recipe title" id="title">
+        <select name="category" id="categorySelect">
+            <option value="MainsDairy">Mains Dairy</option>
+            <option value="Mains">Mains</option>
+            <option value="Appetizers">Appetizers</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Desserts">Desserts</option>
+        </select>
+        <div class="ingredientsList">
+
+        </div>
+        <input type="text" name="description" placeholder="short description" id="description">
+        <textarea name="instructions" rows="10" cols="50" placeholder="instructions" id="instructions"></textarea>
+        <input type="submit" value="Create" onclick="sendData()" placeholder="Create">
+
+    </form>
+    <button onclick="addIngredient()" id="addIngr">Add Ingredient</button>
+
+    
+</body>
+</html>
