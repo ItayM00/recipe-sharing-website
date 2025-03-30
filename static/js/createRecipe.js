@@ -50,7 +50,7 @@ function sendData(){
         'instructions': instructions.value
     }
     
-    fetch('/store_recipe', {  // route to send data
+    fetch('/createRecipe', {  // route to send data
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'  // Specify JSON data
