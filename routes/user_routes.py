@@ -12,9 +12,9 @@ user_bp = Blueprint("user", __name__)
 @user_bp.route('/login', methods=['POST', 'GET'])
 def login_route():
     if request.method == 'POST':
-        session['username'] = request.form['username_entry']
         email = request.form['email_entry']
         password = request.form['password_entry']
+        session['email'] = email
 
         if login_user(email, password):
             return redirect(url_for('home.home_route'))
