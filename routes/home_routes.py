@@ -17,7 +17,7 @@ def home_route():
     user = get_user_details(session['email'])
 
     if 'error' in user:
-        return redirect(url_for('user_bp.login_route'))
+        return redirect(url_for('user.login_route'))
     
     return render_template('home.html', username=user['username'])
 
