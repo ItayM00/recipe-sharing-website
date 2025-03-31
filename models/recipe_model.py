@@ -3,6 +3,7 @@
     recipe_model.py → Handles recipe-related database functions.
 """
 from database.db import db 
+from bson import ObjectId
 
 recipe_collection = db['recipes']
 
@@ -41,11 +42,21 @@ def get_recipe_by_user(title, user_email) -> dict:
     if recipe:
         return recipe
     else:
-        return {'msg':'recipe not found!'}
+        return None
     
 
 def get_all_recipes_by_user(user_email) -> list:
     return list(recipe_collection.find({'creator_email':user_email}))
+
+
+def get_recipe_by_id(recipe_id) -> dict:
+    recipe_id = ObjectId(recipe_id)
+    recipe = recipe_collection.find_one({'_id':recipe_id})
+
+    if recipe:
+        return recipe
+    else:
+        return None
 
 
 
@@ -55,7 +66,7 @@ def get_recipe_by_title(recipe_title) -> dict:
     if recipe:
         return recipe
     else:
-        return {'msg':'recipe not found!'}
+        return None
 
 
 
