@@ -4,6 +4,7 @@
 """
 
 from flask import Blueprint, redirect, url_for, render_template, session
+from models.user_model import  get_user_details
 
 home_bp = Blueprint("home", __name__)
 
@@ -13,7 +14,12 @@ def home_route():
     if 'email' not in session: # if user is not logged in
         return  redirect(url_for('home_bp.landing_page_route'))
     
-    return render_template('home.html')
+    user = get_user_details(session['email'])
+
+    if 'error' in user:
+        return redirect(url_for('user_bp.login_route'))
+    
+    return render_template('home.html', username=user['username'])
 
 
 @home_bp.route('/')
