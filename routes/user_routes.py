@@ -4,7 +4,7 @@
 """
 
 from flask import Blueprint, redirect, url_for, request, render_template, session, jsonify
-from models.user_model import register_user, login_user
+from models.user_model import register_user, login_user, get_user_details
 
 user_bp = Blueprint("user", __name__)
 
@@ -38,3 +38,16 @@ def signUp_route():
             return jsonify({"error": "Invalid credentials, user already exists"}), 400
     else:
         return render_template('signUp.html')
+    
+
+@user_bp.route('/<username>/profile', methods=['GET'])
+def user_profile_route(username):
+    user = get_user_details(session['email'])
+
+    if 'error' in user:
+        return jsonify({"error": "Invalid credentials"}), 404
+    
+    if user['username'] != username:  
+        return jsonify({"error": "Unauthorized access"}), 403 
+    
+    return render_template('profile.html', name=user['username'])
