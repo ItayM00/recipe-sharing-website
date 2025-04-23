@@ -10,17 +10,21 @@ document.querySelector("#signupForm").addEventListener("submit", function (event
     if (pass !== con_pass) {
         alert("Passwords must be the same.");
         event.preventDefault();
+        return;
     }
     if (pass.length < 8) {
         alert("Password should be at least 8 characters long.");
         event.preventDefault();
+        return;
     }
     if (!usernamePattern.test(username)) {
         alert("Username can only contain letters and numbers.");
         event.preventDefault();
+        return;
     }
     if (!emailPattern.test(email)) {
         alert("Not a valid email address.");
         event.preventDefault();
+        return;
     }
 });

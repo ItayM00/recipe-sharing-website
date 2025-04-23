@@ -6,27 +6,62 @@
     <title>Recipe Master</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/createRecipe.css') }}">
     <script defer src="{{ url_for('static', filename='js/createRecipe.js') }}"></script>
+    <!--
+        <link rel="stylesheet" href="/Advanced_Recipe_Site/static/css/createRecipe.css">
+        <script defer src="/Advanced_Recipe_Site/static/js/createRecipe.js"></script>
+    -->
 </head>
 <body>
-
-    <form action="http://localhost:5000/create-recipe" method="post">
-        <input type="text" name="title" placeholder="recipe title" id="title">
-        <select name="category" id="categorySelect">
-            <option value="MainsDairy">Mains Dairy</option>
-            <option value="Mains">Mains</option>
-            <option value="Appetizers">Appetizers</option>
-            <option value="Drinks">Drinks</option>
-            <option value="Desserts">Desserts</option>
-        </select>
-        <div class="ingredientsList">
-
+    
+    <div class="main-container">
+        <div class="nav-bar">
+    
         </div>
-        <input type="text" name="description" placeholder="short description" id="description">
-        <textarea name="instructions" rows="10" cols="50" placeholder="instructions" id="instructions"></textarea>
-        <input type="submit" value="Create" onclick="sendData()" placeholder="Create">
+    
+        <div class="create-form">
+            <div class="title">
+                <input type="text" name="title" placeholder="place your recipe title here..." id="title">
+            </div>
+            <div class="category-select">
+                <select name="category" id="categorySelect">
+                    <option value="MainsDairy">Mains Dairy</option>
+                    <option value="Mains">Mains</option>
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Desserts">Desserts</option>
+                </select>
+            </div>
+            <div class="short-description">
+                <input type="text" name="description" placeholder="short description" id="description">
+            </div>
+            <div class="ingredientsList">
+                <div class="ingredientChoose">
+                    <input type="text" name="ingredients" placeholder="ingredient name" class="ingredient-input">
+                    <input type="number" name="count" placeholder="amount" class="amount-input">
+                    <select name="sizes" class="sizes-select">
+                        <option value="gram">gram</option>
+                        <option value="cup">cup</option>
+                        <option value="kg">kg</option>
+                        <option value="oz">oz</option>
+                        <option value="ml">ml</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button onclick="removeIngredient(this)" class="delete-bt">✖</button>
+                </div>
+            </div>
+            <button onclick="addIngredient()" id="add-bt">Add Ingredient</button>
+            <div class="instructions">
+                <textarea name="instructions" rows="10" cols="50" placeholder="instructions" id="instructions"></textarea>
+            </div>
+            <button onclick="sendData()" id="create-bt">Create Recipe</button>
+            <!--
+                <form action="http://localhost:5000/create-recipe" method="post">
+            
+                </form>
+            -->
+        </div>
+    </div>
 
-    </form>
-    <button onclick="addIngredient()" id="addIngr">Add Ingredient</button>
 
     
 </body>

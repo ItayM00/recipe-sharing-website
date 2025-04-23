@@ -34,10 +34,10 @@ function summarizeIngredients() {
 }
 
 // function to send the recipe data through the API to backend
-function sendData(){
+function sendData() {
     let summary = summarizeIngredients();
 
-    if(!summary){
+    if (!summary) {
         return;
     }
 
@@ -49,18 +49,33 @@ function sendData(){
         'description': description.value,
         'instructions': instructions.value
     }
-    
-    fetch('/createRecipe', {  // route to send data
+
+    fetch('/create-recipe', {  // route to send data
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'  // Specify JSON data
         },
         body: JSON.stringify(dataObj)  // Convert JS object to JSON
     })
-    .then(response => response.json())  // Convert response to JSON
-    .then(data => console.log('Response from Flask:', data))  // Handle response
-    .catch(error => console.error('Error:', error));
+    .then(response => {
+        if (response.redirected) {
+            // If the response contains a redirect, follow it manually
+            window.location.href = response.url;
+        } else if (response.ok) {
+            return response.text();
+        } else {
+            return response.json();
+        }
+    })
+    .then(data => {
+        console.log('Response from Flask:', data);  // Handle response if needed (e.g., error message)
+    })
+    .catch(error => {
+        console.error('Error:', error);  // Handle any errors that might occur during the fetch
+    });
 }
+
+
 
 // function to dynamiclly add a line for a new ingredient
 function addIngredient(){
@@ -72,21 +87,24 @@ function addIngredient(){
 
     // Create ingredient input
     let newIngredient = document.createElement("input");
+    newIngredient.classList.add("ingredient-input");
     newIngredient.type = "text";
     newIngredient.name = "ingredients";
     newIngredient.placeholder = "Ingredient name";
 
     // Create count input
     let newCount = document.createElement("input");
+    newCount.classList.add("amount-input");
     newCount.type = "number";
     newCount.name = "count";
-    newCount.placeholder = "Quantity";
+    newCount.placeholder = "amount";
 
     // Create size dropdown
     let newSizeSelect = document.createElement("select");
+    newSizeSelect.classList.add("sizes-select");
     newSizeSelect.name = "sizes";
 
-    let options = ["oz", "gram", "cup", "kg", "ml", "L"];
+    let options = ["gram", "cup", "kg", "oz", "ml", "L"];
     options.forEach(size => {
         let option = document.createElement("option");
         option.value = size;
@@ -94,11 +112,24 @@ function addIngredient(){
         newSizeSelect.appendChild(option);
     });
 
+    let newDelbt = document.createElement("button");
+    newDelbt.classList.add("delete-bt");
+    newDelbt.addEventListener("click", () => removeIngredient(newDelbt));
+    newDelbt.innerText = "✖";
+
     // Append inputs to newDiv
     newDiv.appendChild(newIngredient);
     newDiv.appendChild(newCount);
     newDiv.appendChild(newSizeSelect);
+    newDiv.appendChild(newDelbt);
 
     // Append new ingredient div to the main container
     list.appendChild(newDiv);
+}
+
+function removeIngredient(button) {
+    const ingredientDiv = button.closest('.ingredientChoose');
+    if (ingredientDiv) {
+        ingredientDiv.remove();
+    }
 }

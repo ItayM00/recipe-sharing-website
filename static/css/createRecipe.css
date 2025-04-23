@@ -1,11 +1,111 @@
-*{box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-body{
+body {
     height: 100vh;
     width: 100%;
-    margin: 0;
-
+    
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    align-items: start;
+    
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    overflow: auto;
+}
+
+.main-container {
+    width: 50%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.title input,
+.short-description input,
+.ingredientChoose input,
+.ingredientChoose select,
+#instructions {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+}
+
+.category-select select {
+    width: 15%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+}
+
+.ingredientChoose {
+    display: flex;
+    gap: 1rem;
     align-items: center;
+}
+
+.ingredientChoose input[type="text"]{
+    max-width: 50%;
+}
+
+.ingredientChoose input[type="number"] {
+    max-width: 12%;
+}
+
+.ingredientChoose select {
+    max-width: 10%;
+}
+
+.ingredientsList{
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 1.1rem;
+}
+
+
+
+#instructions {
+    resize: vertical;
+}
+
+.delete-bt{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #ff3636;
+    color: #fff;
+}
+
+#add-bt, 
+#create-bt{
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #fffc33;
+    transition: background-color 0.3s ease;
+}
+
+#add-bt:hover,
+#create-bt:hover {
+    background-color: #ffff5c;
 }
