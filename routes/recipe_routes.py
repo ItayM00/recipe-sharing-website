@@ -20,7 +20,7 @@ def create_recipe_route():
             if not data:
                 return jsonify({"error": "No data received"}), 400
 
-            data['create_date'] = date.today()
+            data['create_date'] = str(date.today())
             data['creator_email'] = session.get('email')
 
             if not data['creator_email']:
@@ -29,9 +29,10 @@ def create_recipe_route():
             print("Received Recipe Data:", data)
 
             if create_recipe(data):
+                print("Redirecting to home route...")
                 return redirect(url_for('home.home_route'))
             else:
-                return jsonify({"error": "Error in creating the recipe"}), 401
+                return jsonify({"error": "Error in creating the recipe"}), 500
         
         except Exception as e:
             return jsonify({"error": str(e)}), 400
