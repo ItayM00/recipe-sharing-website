@@ -1,5 +1,8 @@
 # Recipe Sharing Website
 
+> [!NOTE]
+> The website is still in development, Feel free to contribute by submitting issues
+
 ## Overview
 The Recipe Sharing Website is a platform where users can explore, share, and save their favorite recipes. It provides a user-friendly interface for browsing a diverse collection of recipes, submitting personal recipes, and interacting with the cooking community.
 
@@ -26,8 +29,3 @@ The Recipe Sharing Website is a platform where users can explore, share, and sav
 - improving GUI (using a framework like React)
 - Switching to a cloud database
 - Deploying the website
-
-## Contribution
-Feel free to contribute by submitting issues or pull requests.
-
-
