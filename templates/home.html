@@ -14,7 +14,7 @@
         <div class="nav-bar">
             <a href="{{ url_for('user.user_profile_route', username=username) }}">Go To Profile</a>
             <br>
-            <a href="http://localhost:5000/create-recipe">Create Recipe</a>
+            <a href="{{ url_for('recipe.create_recipe_route') }}">Create Recipe</a>
         </div>
         <div class="main-section">
 

@@ -16,10 +16,10 @@
         <div class="CenterFlex main">
             <div class="form-div">
                 <div class="title">Sign in</div>
-                <form action="http://localhost:5000/login" method="post">
+                <form action="{{ url_for('user.login_route') }}" method="post">
                     <div class="in-form">
-                        <div>Email:</div>
-                        <input type="text" name="email_entry" placeholder="email" required>
+                        <div>Username:</div>
+                        <input type="text" name="username_entry" placeholder="username" required>
                     </div>
                     <div class="in-form">
                         <div>password:</div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="CenterFlex submit-div"><input type="submit" value="submit" placeholder="Sign in"></div>
                 </form>
-                <div class="CenterFlex sign-up-link"><a href="http://localhost:5000/signUp">Dont have an account? Sign Up here</a></div>
+                <div class="CenterFlex sign-up-link"><a href="{{ url_for('user.signUp_route') }}">Dont have an account? Sign Up here</a></div>
             </div>
             <div class="side-div"></div>
         </div>

@@ -6,10 +6,6 @@
     <title>Recipe Master</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/createRecipe.css') }}">
     <script defer src="{{ url_for('static', filename='js/createRecipe.js') }}"></script>
-    <!--
-        <link rel="stylesheet" href="/Advanced_Recipe_Site/static/css/createRecipe.css">
-        <script defer src="/Advanced_Recipe_Site/static/js/createRecipe.js"></script>
-    -->
 </head>
 <body>
     
@@ -54,11 +50,6 @@
                 <textarea name="instructions" rows="10" cols="50" placeholder="instructions" id="instructions"></textarea>
             </div>
             <button onclick="sendData()" id="create-bt">Create Recipe</button>
-            <!--
-                <form action="http://localhost:5000/create-recipe" method="post">
-            
-                </form>
-            -->
         </div>
     </div>
 
