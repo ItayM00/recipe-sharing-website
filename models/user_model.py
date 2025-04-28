@@ -12,7 +12,7 @@ def register_user(user) -> bool:
     """
     All the tests for correct input will be done in the js file
     """
-    if users_collection.find_one({"email":user["email"]}):
+    if users_collection.find_one({"username":user["username"]}):
         return False
     
     # Hash the password for security
@@ -29,11 +29,11 @@ def register_user(user) -> bool:
         return False
     
 
-def login_user(email, password) -> bool:
+def login_user(username, password) -> bool:
     """
     Authenticate user through email from the database, return appropriate msg
     """
-    user = users_collection.find_one({"email":email})
+    user = users_collection.find_one({"username":username})
 
     if user and check_password_hash(user["password"], password):
         return True
@@ -48,7 +48,7 @@ def get_all_users() -> list:
     return list(users_collection.find())
     
 
-def get_user_details(email) -> dict:
+def get_user_by_email(email) -> dict:
     """
     Get all the user details via email
     """
@@ -60,10 +60,31 @@ def get_user_details(email) -> dict:
     return {"error":"user not found! email or password incorect"}
 
 
-def update_user_details(email, new_user_details):
-    user = get_user_details(email)
+def get_user_by_username(username) -> dict:
+    """
+    Get all the user details via username
+    """
+    user = users_collection.find_one({"username":username})
 
-    if user.get("error"):
+    if(user):
+        return user
+    
+    return {"error": "user not found! username might be incorrect"}
+
+
+def get_email_by_username(username) -> str:
+    user_details = get_user_by_username(username)
+
+    if "error" in user_details:
+        return user_details["error"]
+
+    return user_details["email"]
+
+
+def update_user_details(email, new_user_details):
+    user = get_user_by_email(email)
+
+    if "error" in user:
         return user["error"]
     
     else:

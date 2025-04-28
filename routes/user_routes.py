@@ -4,7 +4,7 @@
 """
 
 from flask import Blueprint, redirect, url_for, request, render_template, session, jsonify
-from models.user_model import register_user, login_user, get_user_details
+from models.user_model import register_user, login_user, get_email_by_username, get_user_by_email
 
 user_bp = Blueprint("user", __name__)
 
@@ -12,11 +12,12 @@ user_bp = Blueprint("user", __name__)
 @user_bp.route('/login', methods=['POST', 'GET'])
 def login_route():
     if request.method == 'POST':
-        email = request.form['email_entry']
+        username = request.form['username_entry']
         password = request.form['password_entry']
-        session['email'] = email
 
-        if login_user(email, password):
+        if login_user(username, password):
+            session.pop('email', None)
+            session['email'] = get_email_by_username(username)
             return redirect(url_for('home.home_route'))
         else:
             return jsonify({"error": "Invalid credentials"}), 401
@@ -33,6 +34,8 @@ def signUp_route():
         user['password'] = request.form['password_entry']
         
         if register_user(user):
+            session.pop('email', None)
+            session["email"] = user['email']
             return redirect(url_for('home.home_route'))
         else:
             return jsonify({"error": "Invalid credentials, user already exists"}), 400
@@ -40,9 +43,18 @@ def signUp_route():
         return render_template('signUp.html')
     
 
+@user_bp.route('/logout', methods=['POST'])
+def logout_route():
+    session.clear()
+    return redirect(url_for('user.login_route'))
+    
+
 @user_bp.route('/<username>/profile', methods=['GET'])
 def user_profile_route(username):
-    user = get_user_details(session['email'])
+    if 'email' not in session:
+        return render_template("landingPage.html")
+    
+    user = get_user_by_email(session['email'])
 
     if 'error' in user:
         return jsonify({"error": "Invalid credentials"}), 404
