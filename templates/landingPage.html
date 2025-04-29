@@ -9,9 +9,261 @@
 </head>
 <body>
 
-    <h1>Hello there</h1>
-    <br>
-    <a href="{{ url_for('user.login_route') }}">login to your account</a>
+    <div class="Header">
+        <div class="Logo">
+            <img src="/Advanced_Recipe_Site/static/css/images/siteLogoSmallNoBack.png" alt="Recipe Share Logo">
+            <div class="LogoText">Recipe Master</div>
+        </div>
+        
+        <div class="AuthButtons">
+            <a href="{{ url_for('user.login_route') }}" class="LoginBtn">Log In</a>
+            <a href="{{ url_for('user.signUp_route') }}" class="SignupBtn">Sign Up</a>
+        </div>
+    </div>
+
+    <div class="HeroSection">
+        
+        <div class="HeroContent">
+            <div class="HeroTitle">Share Recipes, Discover Flavors</div>
+            <div class="HeroDescription">
+                Join our passionate community of home chefs and food enthusiasts. Share your culinary creations, discover new recipes, and connect with people who love cooking as much as you do.
+            </div>
+            
+            <div class="HeroButtons">
+                <a href="{{ url_for('user.login_route') }}" class="PrimaryBtn">Join Now - It's Free</a>
+            </div>
+            
+            <div class="HeroStats">
+                <div class="StatItem">
+                    <div class="StatNumber">10K+</div>
+                    <div class="StatLabel">Recipes</div>
+                </div>
+                <div class="StatItem">
+                    <div class="StatNumber">8K+</div>
+                    <div class="StatLabel">Users</div>
+                </div>
+                <div class="StatItem">
+                    <div class="StatNumber">50+</div>
+                    <div class="StatLabel">Categories</div>
+                </div>
+            </div>
+           
+        </div>
+        
+        <div class="HeroImageContainer">
+            <div class="HeroImage">
+                <img src="/Advanced_Recipe_Site/static/css/images/ingredients-removebg-preview.png" alt="Cooking">
+            </div>
+        </div>
+    </div>
+
+    <div class="FeaturesSection">
+        <div class="SectionHeader">
+            <div class="SectionTitle">Why Choose Recipe Master?</div>
+            <div class="SectionSubtitle">
+                Our platform offers everything you need to explore and share your culinary journey with a community of food enthusiasts.
+            </div>
+        </div>
+        
+        <div class="FeaturesGrid">
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="FeatureTitle">Join the Community</div>
+                <div class="FeatureDescription">
+                    Connect with fellow food lovers, follow your favorite chefs, and build your cooking network.
+                </div>
+            </div>
+            
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-upload"></i>
+                </div>
+                <div class="FeatureTitle">Share Your Recipes</div>
+                <div class="FeatureDescription">
+                    Upload your own recipes with detailed ingredients, instructions, photos, and cooking tips.
+                </div>
+            </div>
+            
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="FeatureTitle">Save Favorites</div>
+                <div class="FeatureDescription">
+                    Bookmark recipes you love and organize them into collections for easy access anytime.
+                </div>
+            </div>
+            
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="FeatureTitle">Smart Search</div>
+                <div class="FeatureDescription">
+                    Find exactly what you're craving with our powerful search and filtering system.
+                </div>
+            </div>
+            
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-comment"></i>
+                </div>
+                <div class="FeatureTitle">Rate & Comment</div>
+                <div class="FeatureDescription">
+                    Share your experience, provide feedback, and help others with your cooking insights.
+                </div>
+            </div>
+            
+            <div class="FeatureCard">
+                <div class="FeatureIcon">
+                    <i class="fa fa-mobile"></i>
+                </div>
+                <div class="FeatureTitle">Cook Anywhere</div>
+                <div class="FeatureDescription">
+                    Access your recipes on any device, perfect for cooking in the kitchen or planning meals on the go.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="CategoriesSection">
+        <div class="SectionHeader">
+            <div class="SectionTitle">Explore Recipe Categories</div>
+            <div class="SectionSubtitle">
+                Browse through our diverse collection of recipe categories to find exactly what you're looking for.
+            </div>
+        </div>
+
+        <div class="CategoriesSlider">
+            <div class="CategoryCard">
+                <div class="CategoryImageContainer">
+                    <img src="/api/placeholder/300/200" alt="Breakfast">
+                </div>
+                <div class="CategoryContent">
+                    <div class="CategoryName">Breakfast</div>
+                    <div class="CategoryInfo">
+                        <div class="RecipeCount">328 Recipes</div>
+                        <a href="#" class="ExploreLink">Explore <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="CategoryCard">
+                <div class="CategoryImageContainer">
+                    <img src="/api/placeholder/300/200" alt="Italian">
+                </div>
+                <div class="CategoryContent">
+                    <div class="CategoryName">Italian</div>
+                    <div class="CategoryInfo">
+                        <div class="RecipeCount">415 Recipes</div>
+                        <a href="#" class="ExploreLink">Explore <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="CategoryCard">
+                <div class="CategoryImageContainer">
+                    <img src="/api/placeholder/300/200" alt="Asian">
+                </div>
+                <div class="CategoryContent">
+                    <div class="CategoryName">Asian</div>
+                    <div class="CategoryInfo">
+                        <div class="RecipeCount">283 Recipes</div>
+                        <a href="#" class="ExploreLink">Explore <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="CategoryCard">
+                <div class="CategoryImageContainer">
+                    <img src="/api/placeholder/300/200" alt="Desserts">
+                </div>
+                <div class="CategoryContent">
+                    <div class="CategoryName">Desserts</div>
+                    <div class="CategoryInfo">
+                        <div class="RecipeCount">192 Recipes</div>
+                        <a href="#" class="ExploreLink">Explore <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="CategoryCard">
+                <div class="CategoryImageContainer">
+                    <img src="/api/placeholder/300/200" alt="Vegan">
+                </div>
+                <div class="CategoryContent">
+                    <div class="CategoryName">Vegan</div>
+                    <div class="CategoryInfo">
+                        <div class="RecipeCount">156 Recipes</div>
+                        <a href="#" class="ExploreLink">Explore <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="HowItWorksSection">
+        <div class="SectionHeader">
+            <div class="SectionTitle">How Recipe Master Works</div>
+            <div class="SectionSubtitle">
+                Getting started is easy! Follow these simple steps to begin your culinary journey with our community.
+            </div>
+        </div>
+        
+        <div class="StepsContainer">
+            <div class="StepCard">
+                <div class="StepNumber">1</div>
+                <div class="StepTitle">Create an Account</div>
+                <div class="StepDescription">
+                    Sign up for free and create your personal profile to join our community.
+                </div>
+            </div>
+            
+            <div class="StepCard">
+                <div class="StepNumber">2</div>
+                <div class="StepTitle">Explore Recipes</div>
+                <div class="StepDescription">
+                    Browse thousands of recipes or search for something specific.
+                </div>
+            </div>
+            
+            <div class="StepCard">
+                <div class="StepNumber">3</div>
+                <div class="StepTitle">Save & Share</div>
+                <div class="StepDescription">
+                    Save your favorites and share your own recipes with the community.
+                </div>
+            </div>
+            
+            <div class="StepCard">
+                <div class="StepNumber">4</div>
+                <div class="StepTitle">Connect & Enjoy</div>
+                <div class="StepDescription">
+                    Follow other chefs, leave reviews, and enjoy cooking new dishes!
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="CtaSection">
+        <div class="CtaTitle">Ready to Start Your Culinary Journey?</div>
+        <div class="CtaDescription">
+            Join thousands of food enthusiasts sharing recipes, tips, and culinary experiences. Create your free account today and start exploring!
+        </div>
+        <a href="{{ url_for('user.signUp_route') }}" class="CtaButton">Sign Up Now</a>
+    </div>
+
+        <div class="Footer">
+            
+            <div class="FooterBottom">
+                <div class="Copyright">
+                    © 2025 Recipe Master. All rights reserved.
+                </div>
+            </div>
+    </div>
     
 </body>
 </html>
