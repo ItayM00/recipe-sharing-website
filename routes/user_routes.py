@@ -3,7 +3,7 @@
     user_routes.py → Handles user-related routes.
 """
 
-from flask import Blueprint, redirect, url_for, request, render_template, session, jsonify
+from flask import Blueprint, redirect, url_for, request, render_template, session, jsonify, abort
 from models.user_model import register_user, login_user, get_email_by_username, get_user_by_email
 
 user_bp = Blueprint("user", __name__)
@@ -52,14 +52,14 @@ def logout_route():
 @user_bp.route('/<username>/profile', methods=['GET'])
 def user_profile_route(username):
     if 'email' not in session:
-        return render_template("landingPage.html")
+        return redirect(url_for('user.login_route'))
     
     user = get_user_by_email(session['email'])
 
     if 'error' in user:
-        return jsonify({"error": "Invalid credentials"}), 404
+        abort(404)
     
     if user['username'] != username:  
-        return jsonify({"error": "Unauthorized access"}), 403 
+        abort(403)
     
     return render_template('profile.html', name=user['username'])
