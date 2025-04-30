@@ -5,19 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Master</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     
-    <h1>Hello {{ name }}</h1>
-
-    <div class="container">
-        <div class="nav-bar">
-            <a href="{{ url_for('user.user_profile_route', username=username) }}">Go To Profile</a>
-            <br>
-            <a href="{{ url_for('recipe.create_recipe_route') }}">Create Recipe</a>
+    <div class="MainWeb">
+        <header>
+            <img class="logo" src="" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="">Home</a></li>
+                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">Recipes</a></li>
+                    <li><a href="">Categories</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="{{ url_for('recipe.create_recipe_route') }}"><button>Create</button></a>
+        </header>
+        <div class="MainBody">
+            <div class="BodyDescr">
+                <div class="DescrTitle">Welcome!</div>
+                <div class="DescrText">
+                    Explore a world of culinary inspiration with our recipes website. From timeless classics to innovative creations, our curated collection offers something for every taste and occasion. With detailed instructions, expert tips, and stunning visuals. Elevate your kitchen experience—start creating today!
+                </div>
+            </div>
+            <div class="PicMain">
+                <img src="" alt="ingredient-pic">
+            </div>
         </div>
-        <div class="main-section">
+    </div>
+    <div class="BellowMain">
+        <div class="DescrCat">
 
+        </div>
+        <div class="Socials">
+            <div>© 2025 Recipe Master. All rights reserved.</div>
+            <a href="https://github.com/ItayM00" target="_blank" class="socialBlock"><i class="fa fa-github"></i>GitHub</a>
         </div>
     </div>
 

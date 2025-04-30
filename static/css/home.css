@@ -1,11 +1,269 @@
 *{box-sizing: border-box;}
 
 body{
+    margin: 0;
     height: 100vh;
     width: 100%;
-    margin: 0;
+}
 
+
+li, a, button{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #edf0f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10%;
+}
+
+.logo{
+    cursor: pointer;
+    width: 10%;
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li{
+    display: inline-block;
+    padding: 0rem 2.5rem;
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+    font-size: 1.7rem;
+}
+
+.nav_links li a:hover{
+    color: #bace00;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: rgb(195, 202, 0, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgb(195, 202, 0, 0.7);
+}
+
+
+.MainWeb{
+    height: 100%;
+    width: 100%;
+
+    background-image: url("https://i.pinimg.com/736x/3d/29/82/3d2982922a58f4d895970f13359f557d.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.MainBody{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.BodyDescr{
+    height: 50%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    opacity: 0.9;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.DescrTitle{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 3rem;
+    color: black;
+    font-family: 'Agbalumo';
+    padding: 0px 0px 10px 0px;
+    width: 100%;
+}
+
+.DescrText{
+    width: 100%;
+    font-size: 1rem;
+    color: black;
+    font-family: 'Agbalumo';
+    padding: 10px 0px 0px 0px;
+}
+
+.PicMain{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 70%;
+    width: 40%;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    opacity: 0.9;
+    overflow: hidden;
+    transition: transform 0.3s ease-in;
+}
+
+.PicMain > img{
+    height: 75%;
+    width: 75%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in;
+} 
+.PicMain > img:hover{
+    transform: scale(1.2);
+}  
+
+.BellowMain{
+    height: 100vh;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.DescrCat{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 90vh;
+    width: 100%;
+    gap: 7%;
 }
+
+.Box{
+    height: 60%;
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.Box:hover{
+    box-shadow: 5px 10px 0px 5px black;
+    transform: translateY(-5px);
+}
+
+.Box > img{
+    height: 50%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.RecipeTitle{
+    padding-left: 5px;
+    font-size: 1.5rem;
+    color: black;
+    font-family: 'Agbalumo';
+    height: 25%;
+    width: 100%;
+}
+
+.Categ{
+    padding-left: 5px;
+    font-size: 1.1rem;
+    font-family: 'Agbalumo';
+    color: rgb(223, 162, 48);
+    height: 10%;
+    width: 100%;
+}
+.OtherInfo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    height: 15%;
+    width: 100%;
+}
+
+.star{
+    width: 20%;
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    font-size: 1.1rem;
+}
+
+.time{
+    width: 80%;
+    padding-left: 5px;
+    font-size: 1.1rem;
+}
+
+.Socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background-color: #ebe54d;
+    background-image: linear-gradient(180deg, rgb(255,255,0,0.1), rgb(255,255,0,1));
+}
+
+.Socials > a{
+    text-decoration: none;
+    color: black;
+    padding: 0px 15px 0px 15px;
+    font-size: larger;
+    font-family: 'Agbalumo';
+}
+
+.Socials > a > i, .socialBlock > i{
+    padding: 0px 5px 0px 5px;
+}
+
+.socialBlock, .create-bt{
+    width: 10%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.7rem;
+    font-family: 'Agbalumo';
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.socialBlock:hover{
+    transform: translateY(-5px);
+    text-shadow: #333;
+}
+
+.create-bt{
+    width: 10%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.7rem;
+    font-family: 'Agbalumo';
+}
+
+.create-bt i{
+    transition: transform 0.5s ease-in;
+    margin: 0% 5%;
+}
+
+.create-bt > i:hover{
+    transform: rotate(360deg);
+}
+
+
+
+

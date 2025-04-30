@@ -9,10 +9,20 @@
 </head>
 <body>
     
+    <header>
+        <img class="logo" src="" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('home.home_route') }}">Home</a></li>
+                <li><a href="{{ url_for('recipe.all_recipes_route') }}">Recipes</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="{{ url_for('home.home_route') }}"><button>Cancel</button></a>
+    </header>
     <div class="main-container">
-        <div class="nav-bar">
-    
-        </div>
     
         <div class="create-form">
             <div class="title">
