@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recipe Master</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
 </head>
@@ -15,7 +15,7 @@
         </div>
         <div class="CenterFlex main">
             <div class="form-div">
-                <div class="title">Sign in</div>
+                <div class="title">Login</div>
                 <form action="{{ url_for('user.login_route') }}" method="post">
                     <div class="in-form">
                         <div>Username:</div>

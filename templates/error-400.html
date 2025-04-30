@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>400 Bad Request</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/error-400.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">⚠️</div>
+        <h1>400 Bad Request</h1>
+        <p>Oops! The server couldn't understand this request.</p>
+        <p>There might be an error in the request syntax, or the parameters sent were invalid. Please check your input and try again.</p>
+        <a href="{{ url_for('home.home_route') }}" class="button">Return to Homepage</a>
+    </div>
+</body>
+</html>

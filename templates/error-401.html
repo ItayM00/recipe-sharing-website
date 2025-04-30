@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401 Unauthorized</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/error-401.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="key-icon">🔑</div>
+        <h1>401 Unauthorized</h1>
+        <p>Authentication required to access this page.</p>
+        <p>It looks like you need to log in or provide valid credentials to view this content.</p>
+        <a href="{{ url_for('home.home_route') }}" class="button">Return to Homepage</a>
+        <div>
+            <a href="{{ url_for('user.login_route') }}" class="login-link">Log in to your account</a>
+        </div>
+    </div>
+</body>
+</html>

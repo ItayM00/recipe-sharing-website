@@ -33,7 +33,7 @@ body{
     height: 100%;
     width: 40%;
 
-    padding: 5% 0% 0% 5%;
+    padding: 1% 0% 0% 5%;
     background-color: white;
     flex-direction: column;
 }
@@ -47,7 +47,7 @@ body{
 }
 
 .title{
-    height: 20%;
+    height: 10%;
     width: 100%;
     font-size: 3.5rem;
     color: black;
@@ -55,15 +55,17 @@ body{
 }
 
 form{
-    height: 60%;
+    height: 80%;
     width: 100%;
+
+    overflow-y: scroll;
 }
 
 .in-form{
     height: 15%;
     width: 100%;
 
-    margin: 1.2rem 0rem;
+    margin: 1rem 0rem;
 }
 
 .in-form > div{
@@ -81,8 +83,17 @@ form{
     font-size: 1.1rem;
     outline: none;
     border: none;
-    border-bottom: 2px solid gray;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding-left: 3%;
 }
+
+input[type="date"] {
+    width: 90%;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
 
 .submit-div{
     height: 20%;
@@ -122,7 +133,7 @@ form{
 }
 
 .sign-up-link{
-    height: 20%;
+    height: 10%;
     width: 90%;
 }
 

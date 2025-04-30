@@ -47,7 +47,9 @@ function sendData() {
         'ingredients': summary.ingredients,
         'sizes': summary.sizes,
         'description': description.value,
-        'instructions': instructions.value
+        'instructions': instructions.value,
+        'likes': 0,
+        'comments': []
     }
 
     fetch('/create-recipe', {  // route to send data

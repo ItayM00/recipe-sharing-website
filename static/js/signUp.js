@@ -3,6 +3,7 @@ document.querySelector("#signupForm").addEventListener("submit", function (event
     let pass = document.querySelector("#password_entry").value;
     let username = document.querySelector("#username_entry").value;
     let email = document.querySelector("#email_entry").value;
+    let date = document.querySelector("#date_entry").value;
 
     let usernamePattern = /^[A-Za-z0-9]+$/;
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
@@ -27,4 +28,27 @@ document.querySelector("#signupForm").addEventListener("submit", function (event
         event.preventDefault();
         return;
     }
+    if (!isDateValid(date)) {
+        event.preventDefault();
+        return;
+    }
 });
+
+function isDateValid(input){
+
+    if (!input) {
+        alert("please fill your date of birth!")
+        return false;
+    }
+
+    const dob = new Date(input);
+    const minDate = new Date("1950-01-01");
+    const maxDate = new Date();
+
+    if (dob < minDate || dob > maxDate) {
+        alert("Date out of allowed range.");
+        return false
+    }
+
+    return true;
+}
