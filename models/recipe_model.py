@@ -35,6 +35,18 @@ def get_all_recipes() -> list:
     return list(recipe_collection.find())
 
 
+def get_recipes_by_filter(filters) -> list:
+    allowed_filters = ['title', 'category', 'likes']  # List allowed fields
+    sanitized_filters = {key: value for key, value in filters.items() if key in allowed_filters}
+
+    if 'title' in sanitized_filters:
+        sanitized_filters['title'] = {'$regex': sanitized_filters['title'], '$options': 'i'}
+
+    if 'likes' in sanitized_filters:
+        sanitized_filters['likes'] = {'likes': {'$gt': filters['likes']}}
+
+    return list(recipe_collection.find(sanitized_filters))
+
 
 def get_recipe_by_user(title, user_email) -> dict:
     recipe = recipe_collection.find_one({'creator_email':user_email, 'title':title})
@@ -57,18 +69,3 @@ def get_recipe_by_id(recipe_id) -> dict:
         return recipe
     else:
         return None
-
-
-
-def get_recipe_by_title(recipe_title) -> dict:
-    recipe = recipe_collection.find_one({'title':recipe_title})
-
-    if recipe:
-        return recipe
-    else:
-        return None
-
-
-
-def get_recipes_by_category(category) -> list:
-    return list(recipe_collection.find({'category':category}))

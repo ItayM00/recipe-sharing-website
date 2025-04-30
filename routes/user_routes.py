@@ -20,7 +20,7 @@ def login_route():
             session['email'] = get_email_by_username(username)
             return redirect(url_for('home.home_route'))
         else:
-            return jsonify({"error": "Invalid credentials"}), 401
+            abort(401)
     else:
         return render_template('login.html')
     
@@ -32,13 +32,14 @@ def signUp_route():
         user['username']= session['username'] = request.form['username_entry']
         user['email'] =  request.form['email_entry']
         user['password'] = request.form['password_entry']
+        user['birthdate'] = request.form['date_entry']
         
         if register_user(user):
             session.pop('email', None)
             session["email"] = user['email']
             return redirect(url_for('home.home_route'))
         else:
-            return jsonify({"error": "Invalid credentials, user already exists"}), 400
+            return jsonify({"error": "Invalid credentials, user already exists"}), 409
     else:
         return render_template('signUp.html')
     
