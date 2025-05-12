@@ -17,7 +17,6 @@ def create_recipe_route():
     if request.method == 'POST': # submiting a form (recipe)
         try:
             data = request.json
-
             if not data:
                 abort(400)
 
@@ -29,7 +28,6 @@ def create_recipe_route():
             
             user = get_user_by_email(creator_email)
             data['creator_id'] = user['_id']
-
             print("Received Recipe Data:", data)
 
             if create_recipe(data):
@@ -46,6 +44,9 @@ def create_recipe_route():
             return redirect(url_for('home.landing_page_route'))
         
         user = get_user_by_email(session['email'])
+
+        if not user or 'username' not in user:
+            return redirect(url_for('home.landing_page_route'))
         
         return render_template('createRecipe.html', username=user['username'])
     
@@ -55,7 +56,7 @@ def all_recipes_route():
     if 'email' not in session:  # Check if the user is logged in
        abort(401) # 'error': 'Unauthorized access to a page'
     
-    return jsonify({'message': 'List of recipes (to be implemented in the future)'})
+    return render_template('all-recipes.html')
 
 
 @recipe_bp.route('/recipes/<recipe_id>')
