@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all-recipes.css') }}">
+    <script defer src="{{ url_for('static', filename='js/all-recipes.js') }}"></script>
     <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Recipe Master</title>
@@ -33,12 +34,12 @@
         </div>
 
         <div class="navigation">
-            <button onclick="changeCategory()">ALL</button>
-            <button onclick="changeCategory()">APPETIZERS</button>
-            <button onclick="changeCategory()">MAINS</button>
-            <button onclick="changeCategory()">MAINS DAIRY</button>
-            <button onclick="changeCategory()">DRINKS</button>
-            <button onclick="changeCategory()">DESSERTS</button>
+            <button class="category-on">ALL</button>
+            <button>APPETIZERS</button>
+            <button>MAINS</button>
+            <button>MAINS DAIRY</button>
+            <button>DRINKS</button>
+            <button>DESSERTS</button>
         </div>
 
         <div class="content-area">
@@ -55,7 +56,7 @@
                 <div class="recipe-card-placeholder"></div>
                 <div class="recipe-card-placeholder"></div>
                 <div class="recipe-card-placeholder"></div>
-                </div>
+            </div>
             <div class="sidebar">
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Most Rated</h3>

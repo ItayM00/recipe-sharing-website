@@ -43,7 +43,7 @@ function sendData() {
 
     dataObj = {
         'title': title.value,
-        'category': category.value,
+        'category': category.value.toLowerCase(),
         'ingredients': summary.ingredients,
         'sizes': summary.sizes,
         'description': description.value,

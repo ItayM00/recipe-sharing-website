@@ -116,6 +116,11 @@ header >  a, nav > ul > li, nav > ul > li > a{
     border-bottom: 1px solid #eee;
 }
 
+.category-on{
+    border: 2px solid blue !important;
+    border-radius: 20px !important;
+}
+
 .navigation button {
     padding: 8px 15px;
     border: none;
