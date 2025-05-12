@@ -38,25 +38,33 @@ header{
 }
 
 .nav_links li a{
-    transition: all 0.3s ease 0s;
+    transition: all 0.3s ease-in-out;
     font-size: 1.7rem;
 }
 
 .nav_links li a:hover{
-    color: #bace00;
+    color: rgb(0, 85, 159);
+    text-shadow: 3px 3px 2px white;
 }
 
-button{
+.cta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 0.5rem;
     padding: 9px 25px;
-    background-color: rgb(195, 202, 0, 1);
+
+    background-color: rgb(0, 85, 159);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
+    transition: transform 0.3s ease-in-out;
 }
 
-button:hover{
-    background-color: rgb(195, 202, 0, 0.7);
+.cta:hover{
+    transform: translateY(-3px);
+    border: 2px solid white;
 }
 
 
@@ -95,7 +103,7 @@ button:hover{
 .DescrTitle{
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     font-size: 3rem;
     color: black;
     font-family: 'Agbalumo';
@@ -104,8 +112,12 @@ button:hover{
 }
 
 .DescrText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: black;
     font-family: 'Agbalumo';
     padding: 10px 0px 0px 0px;

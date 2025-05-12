@@ -30,8 +30,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 10%;
+    padding: 10px 10%;
 }
+
 
 .logo{
     cursor: pointer;
@@ -53,20 +54,39 @@ header{
 }
 
 .nav_links li a:hover{
-    color: #bace00;
+    color: rgb(0, 85, 159);
+    text-shadow: 3px 3px 2px gray;
 }
 
-.cta > button{
+.cta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 0.5rem;
     padding: 9px 25px;
-    background-color: rgb(202, 0, 0);
+
+    background-color: rgb(0, 85, 159);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
+    transition: transform 0.3s ease-in-out;
 }
 
-button:hover{
-    background-color: rgb(202, 0, 0, 0.7);
+.cta:hover{
+    transform: translateY(-3px);
+    border: 2px solid white;
+}
+
+.cta span{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.cta i{
+    filter: invert(100%);
 }
 
 
@@ -74,6 +94,7 @@ button:hover{
 .main-container {
     width: 50%;
     background-color: #fff;
+    margin-top: 1rem;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -155,11 +176,12 @@ button:hover{
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #fffc33;
+    background-color: rgb(0, 85, 159);
+    color: white;
     transition: background-color 0.3s ease;
 }
 
 #add-bt:hover,
 #create-bt:hover {
-    background-color: #ffff5c;
+    background-color: rgb(0, 85, 159, 0.8);
 }

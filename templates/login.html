@@ -19,11 +19,11 @@
                 <form action="{{ url_for('user.login_route') }}" method="post">
                     <div class="in-form">
                         <div>Username:</div>
-                        <input type="text" name="username_entry" placeholder="username" required>
+                        <input type="text" name="username_entry" placeholder="username" autocomplete="off" required>
                     </div>
                     <div class="in-form">
                         <div>password:</div>
-                        <input type="password" name="password_entry" placeholder="password" required/>
+                        <input type="password" name="password_entry" placeholder="password" autocomplete="off" required/>
                     </div>
                     <div class="CenterFlex submit-div"><input type="submit" value="submit" placeholder="Sign in"></div>
                 </form>
