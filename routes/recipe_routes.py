@@ -45,7 +45,9 @@ def create_recipe_route():
         if 'email' not in session: # if user is not logged in
             return redirect(url_for('home.landing_page_route'))
         
-        return render_template('createRecipe.html')
+        user = get_user_by_email(session['email'])
+        
+        return render_template('createRecipe.html', username=user['username'])
     
 
 @recipe_bp.route('/recipes')
