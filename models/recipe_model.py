@@ -69,3 +69,15 @@ def get_recipe_by_id(recipe_id) -> dict:
         return recipe
     else:
         return None
+    
+
+def objectid_to_str(obj):
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    elif isinstance(obj, dict):
+        # If obj is a dictionary, iterate over its keys and values
+        return {key: objectid_to_str(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        # If obj is a list, iterate over each item in the list
+        return [objectid_to_str(item) for item in obj]
+    return obj

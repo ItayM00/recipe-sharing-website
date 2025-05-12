@@ -5,7 +5,7 @@
 
 from flask import Blueprint, redirect, url_for, request, render_template, jsonify, session, abort
 from datetime import date
-from models.recipe_model import create_recipe, get_recipe_by_id, get_recipes_by_filter
+from models.recipe_model import create_recipe, get_recipe_by_id, get_recipes_by_filter, objectid_to_str
 from models.user_model import get_user_by_email
 
 
@@ -87,5 +87,8 @@ def get_recipes_api():
         filters['category'] = category
 
     recipe_list = get_recipes_by_filter(filters)
+
+    # Convert any ObjectId attribute to string
+    recipe_list = objectid_to_str(recipe_list)
 
     return jsonify(recipe_list)
