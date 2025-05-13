@@ -29,3 +29,30 @@ The Recipe Sharing Website is a platform where users can explore, share, and sav
 - improving GUI (using a framework like React)
 - Switching to a cloud database
 - Deploying the website
+
+
+
+## Installation
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ItayM00/recipe-sharing-website.git
+   cd recipe-sharing-website
+
+2. **Make sure you have Python installed. Then install the required packages:**
+    ```bash
+    pip install -r requirements.txt
+
+3. **Start the API**
+    ```bash
+    python app.py
+
+4. **Once the server is running, open:**
+
+    
+    ```arduino
+    http://localhost:5000
+
+5. **You're all set! check it out and have fun.**
