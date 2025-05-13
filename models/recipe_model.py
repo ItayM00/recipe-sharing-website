@@ -24,8 +24,8 @@ def update_recipe(title, user_email, new_recipe) -> bool:
 
 
 
-def delete_recipe(title, user_email) -> bool:
-    result = recipe_collection.delete_one({'title':title, 'creator_email':user_email})
+def delete_recipe(id) -> bool:
+    result = recipe_collection.delete_one({'_id':id})
 
     return result.deleted_count > 0
 
@@ -40,7 +40,7 @@ def get_recipes_by_filter(filters) -> list:
     sanitized_filters = {key: value for key, value in filters.items() if key in allowed_filters}
 
     if 'title' in sanitized_filters:
-        sanitized_filters['title'] = {'$regex': sanitized_filters['title'], '$options': 'i'}
+        sanitized_filters['title'] = {'$regex': f"^{sanitized_filters['title']}", '$options': 'i'}
 
     if 'likes' in sanitized_filters:
         sanitized_filters['likes'] = {'likes': {'$gt': filters['likes']}}

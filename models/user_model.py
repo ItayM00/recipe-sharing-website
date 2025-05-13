@@ -4,6 +4,7 @@
 """
 from database.db import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from bson import ObjectId
 
 users_collection = db["users"]
 
@@ -79,6 +80,17 @@ def get_email_by_username(username) -> str:
         return user_details["error"]
 
     return user_details["email"]
+
+
+def get_user_by_id(user_id) -> dict:
+    id = ObjectId(user_id)
+    user = users_collection.find_one({'_id': id})
+
+    if user:
+        return user
+    
+    return {'error': 'no user found in database'}
+        
 
 
 def update_user_details(email, new_user_details):
