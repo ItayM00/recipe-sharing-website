@@ -5,8 +5,8 @@
 
 from flask import Blueprint, redirect, url_for, request, render_template, jsonify, session, abort
 from datetime import date
-from models.recipe_model import create_recipe, get_recipe_by_id, get_recipes_by_filter, objectid_to_str
-from models.user_model import get_user_by_email
+from models.recipe_model import create_recipe, get_recipe_by_id, get_recipes_by_filter, objectid_to_str, delete_recipe
+from models.user_model import get_user_by_email, get_user_by_id
 
 
 recipe_bp = Blueprint("recipe", __name__)
@@ -69,7 +69,7 @@ def recipe_route(recipe_id):
     if recipe == None:
         abort(404) # 'error': 'Recipe not found'
     
-    return jsonify({'message': "Details for recipe: (to be implemented)"})
+    return render_template('view-recipe.html', recipe=recipe)
 
 
 @recipe_bp.route('/api/recipes', methods=['GET'])
@@ -90,5 +90,12 @@ def get_recipes_api():
 
     # Convert any ObjectId attribute to string
     recipe_list = objectid_to_str(recipe_list)
+
+    for recipe in recipe_list: # adding creator name to each recipe by creator id
+        user = get_user_by_id(recipe['creator_id'])
+        if 'error' in user:
+            delete_recipe(recipe['_id'])
+        else:
+            recipe['creator_name'] = user['username']
 
     return jsonify(recipe_list)
