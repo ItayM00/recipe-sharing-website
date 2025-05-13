@@ -1,11 +1,19 @@
 let recipesHolder = document.querySelector(".main-content");
 let filtersButtons = document.querySelectorAll(".navigation button");
+let searchBt = document.getElementById("search-bt");
+let searchInput = document.querySelector(".search-input");
 
 filtersButtons.forEach(child => {
     child.addEventListener('click', () => {
         changeCategory(child);
         getRecipes('category', child.innerHTML.toLowerCase().replace(' ', ''))
     })
+});
+
+searchBt.addEventListener('click', () => {
+    if(!searchInput.value) return;
+
+    getRecipes('title', searchInput.value.toLowerCase());
 });
 
 function getRecipes(filterType = null, filterValue = null){
@@ -30,11 +38,15 @@ function populateRecipes(recipes){
         const recipeElement = document.createElement('div');
         recipeElement.classList.add('recipe-card');
         recipeElement.innerHTML = `
-            <img src="" alt="${recipe.title}">
-            <h2>${recipe.title}</h2>
-            <div>${recipe.description}</div>
+            <a class="card" href="/recipes/${recipe._id}">
+                <img src="" alt="${recipe.title}">
+                <h2>${recipe.title}</h2>
+                <div class="desc">
+                    <div class="creator">${recipe.creator_name}</div>
+                    <div class="likes">${recipe.likes}👍</div>
+                </div>
+            </a>
             `;
-            // <div>${recipe.likes}👍</div>
         recipesHolder.appendChild(recipeElement);
     });
 }
@@ -45,3 +57,7 @@ function changeCategory(curButton){
     });
     curButton.classList.add("category-on");
 }
+
+setTimeout(() => {
+    getRecipes();
+}, 500);
