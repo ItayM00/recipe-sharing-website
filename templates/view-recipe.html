@@ -5,8 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Master</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/view-recipe.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="{{ url_for('static', filename='js/view-recipe.js') }}"></script>
 </head>
 <body>
+
+    <div class="container">
+        <header>
+            <img class="logo" src="" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="{{ url_for('home.home_route') }}">Home</a></li>
+                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">Recipes</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('recipe.all_recipes_route') }}" class="cta" id="back-bt"><span>Back</span><i class="fa fa-mail-reply"></i></a>
+        </header>
+
+        <div class="recipe-content">
+            <div class="recipe-details">
+                <h1 class="recipe-title">{{ recipe.title }}</h1>
+                <div class="recipe-meta">
+                    <span>Author: {{ recipe.creator_name}}</span>
+                    <span>Posted at: {{ recipe.create_date }}</span>
+                    <span>Cook Time: 30 mins</span>
+                </div>
+
+                <div class="ingredients-section">
+                    <h2 class="section-title">Ingredients</h2>
+                    <ul class="ingredients-list">
+                        {% for name, size in recipe.ingredients %}
+                            <li>{{ size }} {{ name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="instructions-section">
+                    <h2 class="section-title">Instructions</h2>
+                    <p class="instructions-text">{{ recipe.instructions }}</p>
+                    <p class="instructions-text">Continue with the subsequent steps of the recipe preparation.</p>
+                </div>
+            </div>
+
+            <div class="recipe-image-placeholder"></div>
+        </div>
+
+        <div class="comments-section">
+            <h2 class="comments-title">Comments</h2>
+            {% for comment in recipe.comments %}
+                <div class="comment">
+                    <h3 class="comment-author">{{ comment.author_name }}</h3>
+                    <p class="comment-text">{{ comment.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="add-comment-section">
+            <h3 class="add-comment-title">Leave a Comment</h3>
+            <input type="hidden" id="recipe-id" value="{{ recipe._id }}">
+            <input type="hidden" id="user-id" value="{{ recipe.creator_id }}">
+            <div class="comment-form">
+                <textarea id="comment-text" placeholder="Your comment here..."></textarea>
+                <button type="submit" id="post-bt">Post Comment</button>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

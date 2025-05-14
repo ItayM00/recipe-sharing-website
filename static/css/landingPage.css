@@ -4,7 +4,7 @@ body{
     margin: 0;
     height: 100vh;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #1e272e; /* Dark Blue */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     overflow-x: hidden;
 }
@@ -16,7 +16,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    background-color: #ffeb3b;
+    background-color: #34495e; /* Darker Gray */
     position: fixed;
     top: 0;
     z-index: 100;
@@ -36,7 +36,7 @@ body{
 
 .LogoText{
     font-size: 2rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
 }
 
 
@@ -47,10 +47,10 @@ body{
 
 .SignupBtn, .LoginBtn{
     padding: 8px 20px;
-    background-color: white;
+    background-color: #2c3e50; /* Dark Gray */
     border: none;
     border-radius: 25px;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -70,7 +70,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0 8%;
-    background-color: #fff9c4;
+    background-color: #2c3e50; /* Dark Gray */
     position: relative;
     overflow: hidden;
 }
@@ -82,14 +82,14 @@ body{
 
 .HeroTitle{
     font-size: 3.5rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .HeroDescription{
     font-size: 1.1rem;
-    color: #555;
+    color: #dcdde1; /* Medium Gray */
     margin-bottom: 30px;
     line-height: 1.6;
     max-width: 90%;
@@ -103,10 +103,10 @@ body{
 
 .PrimaryBtn{
     padding: 12px 30px;
-    background-color: #ffeb3b;
+    background-color: #3498db; /* Blue */
     border: none;
     border-radius: 30px;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -121,16 +121,16 @@ body{
 .SecondaryBtn{
     padding: 12px 30px;
     background-color: transparent;
-    border: 2px solid #ffeb3b;
+    border: 2px solid #3498db; /* Blue */
     border-radius: 30px;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .SecondaryBtn:hover{
-    background-color: #ffeb3b;
+    background-color: #3498db; /* Blue */
     transform: translateY(-5px);
 }
 
@@ -146,12 +146,12 @@ body{
 
 .StatNumber{
     font-size: 2rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
 }
 
 .StatLabel{
     font-size: 1rem;
-    color: #555;
+    color: #dcdde1; /* Medium Gray */
 }
 
 .HeroImageContainer{
@@ -164,7 +164,7 @@ body{
 .HeroImage{
     width: 100%;
     height: 100%;
-    background-color: #ffeb3b;
+    background-color: #3498db; /* Blue */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
@@ -183,7 +183,7 @@ body{
 
 .FeaturesSection{
     padding: 80px 8%;
-    background-color: white;
+    background-color: #1e272e; /* Dark Blue */
 }
 
 .SectionHeader{
@@ -194,13 +194,13 @@ body{
 .SectionTitle{
     font-family: 'Agbalumo';
     font-size: 2.5rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 15px;
 }
 
 .SectionSubtitle{
     font-size: 1.1rem;
-    color: #666;
+    color: #dcdde1; /* Medium Gray */
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -214,7 +214,7 @@ body{
 }
 
 .FeatureCard{
-    background-color: #fff9c4;
+    background-color: #2c3e50; /* Dark Gray */
     border-radius: 15px;
     padding: 30px;
     transition: all 0.3s ease;
@@ -224,14 +224,14 @@ body{
 
 .FeatureCard:hover{
     transform: translateY(-10px);
-    border-color: #ffeb3b;
+    border-color: #3498db; /* Blue */
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .FeatureIcon{
     width: 60px;
     height: 60px;
-    background-color: #ffeb3b;
+    background-color: #3498db; /* Blue */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -243,19 +243,19 @@ body{
 .FeatureTitle{
     font-family: 'Agbalumo';
     font-size: 1.5rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 15px;
 }
 
 .FeatureDescription{
     font-size: 1rem;
-    color: #555;
+    color: #dcdde1; /* Medium Gray */
     line-height: 1.6;
 }
 
 .CategoriesSection{
     padding: 80px 0;
-    background-color: #fff9c4;
+    background-color: #2c3e50; /* Dark Gray */
 }
 
 .CategoriesSlider{
@@ -275,7 +275,7 @@ body{
 .CategoryCard{
     min-width: 280px;
     height: 350px;
-    background-color: white;
+    background-color: #34495e; /* Darker Gray */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -312,7 +312,7 @@ body{
 .CategoryName{
     font-family: 'Agbalumo';
     font-size: 1.5rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 10px;
 }
 
@@ -324,11 +324,11 @@ body{
 
 .RecipeCount{
     font-size: 0.9rem;
-    color: #666;
+    color: #dcdde1; /* Medium Gray */
 }
 
 .ExploreLink{
-    color: #ffeb3b;
+    color: #3498db; /* Blue */
     display: flex;
     align-items: center;
     gap: 5px;
@@ -344,7 +344,7 @@ body{
 
 .HowItWorksSection{
     padding: 80px 8%;
-    background-color: white;
+    background-color: #1e272e; /* Dark Blue */
 }
 
 .StepsContainer{
@@ -362,7 +362,7 @@ body{
 .StepNumber{
     width: 80px;
     height: 80px;
-    background-color: #ffeb3b;
+    background-color: #3498db; /* Blue */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -370,7 +370,7 @@ body{
     margin: 0 auto 30px;
     font-family: 'Agbalumo';
     font-size: 2rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     position: relative;
     z-index: 1;
 }
@@ -378,24 +378,24 @@ body{
 .StepTitle{
     font-family: 'Agbalumo';
     font-size: 1.3rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 15px;
 }
 
 .StepDescription{
     font-size: 1rem;
-    color: #555;
+    color: #dcdde1; /* Medium Gray */
     line-height: 1.6;
 }
 
 .PopularRecipesSection{
     padding: 80px 8%;
-    background-color: #fff9c4;
+    background-color: #2c3e50; /* Dark Gray */
 }
 
 .CtaSection{
     padding: 100px 8%;
-    background-color: #ffeb3b;
+    background-color: #34495e; /* Darker Gray */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -404,7 +404,7 @@ body{
 .CtaTitle{
     font-family: 'Agbalumo';
     font-size: 3rem;
-    color: #333;
+    color: #f5f6fa; /* Light Gray */
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
@@ -412,7 +412,7 @@ body{
 
 .CtaDescription{
     font-size: 1.2rem;
-    color: #333;
+    color: #dcdde1; /* Medium Gray */
     max-width: 700px;
     margin: 0 auto 40px;
     line-height: 1.6;
@@ -422,10 +422,10 @@ body{
 
 .CtaButton{
     padding: 15px 40px;
-    background-color: white;
+    background-color: #f5f6fa; /* Light Gray */
     border: none;
     border-radius: 30px;
-    color: #333;
+    color: #34495e; /* Darker Gray */
     font-family: 'Agbalumo';
     font-size: 1.2rem;
     cursor: pointer;
@@ -442,12 +442,12 @@ body{
 
 .Footer{
     padding: 60px 8% 30px;
-    background-color: white;
+    background-color: #34495e; /* Darker Gray */
 }
 
 .FooterBottom{
     padding-top: 30px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #4a6572; /* Slightly lighter dark gray */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -455,7 +455,5 @@ body{
 
 .Copyright{
     font-size: 0.9rem;
-    color: #666;
+    color: #dcdde1; /* Medium Gray */
 }
-
-
