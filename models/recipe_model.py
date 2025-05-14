@@ -23,11 +23,21 @@ def update_recipe(title, user_email, new_recipe) -> bool:
     return result.modified_count > 0
 
 
-
 def delete_recipe(id) -> bool:
     result = recipe_collection.delete_one({'_id':id})
 
     return result.deleted_count > 0
+
+
+def add_comment(recipe_id, comment) -> bool:
+    id = ObjectId(recipe_id)
+
+    result = recipe_collection.update_one(
+        {'_id': id},
+        {'$push': {'comments':comment}}
+    )
+
+    return result.modified_count > 0
 
 
 
@@ -66,6 +76,8 @@ def get_recipe_by_id(recipe_id) -> dict:
     recipe = recipe_collection.find_one({'_id':recipe_id})
 
     if recipe:
+        recipe['ingredients'] = zip(recipe['ingredients'], recipe['sizes']) 
+        objectid_to_str(recipe)
         return recipe
     else:
         return None
