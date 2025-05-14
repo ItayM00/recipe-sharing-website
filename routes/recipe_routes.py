@@ -5,7 +5,7 @@
 
 from flask import Blueprint, redirect, url_for, request, render_template, jsonify, session, abort
 from datetime import date
-from models.recipe_model import create_recipe, get_recipe_by_id, get_recipes_by_filter, objectid_to_str, delete_recipe
+from models.recipe_model import *
 from models.user_model import get_user_by_email, get_user_by_id
 
 
@@ -65,6 +65,8 @@ def recipe_route(recipe_id):
         abort(401) # 'error': 'Unauthorized access to a page'
     
     recipe = get_recipe_by_id(recipe_id)
+    user = get_user_by_id(recipe['creator_id'])
+    recipe['creator_name'] = user['username']
 
     if recipe == None:
         abort(404) # 'error': 'Recipe not found'
@@ -99,3 +101,34 @@ def get_recipes_api():
             recipe['creator_name'] = user['username']
 
     return jsonify(recipe_list)
+
+
+@recipe_bp.route('/recipes/<recipe_id>/comments', methods=['POST', 'GET'])
+def add_comment_route(recipe_id):
+    if request.method == 'POST':
+        if 'email' not in session:
+            abort(401)
+
+        try:
+            data = request.get_json()
+
+            if not data:
+                abort(400)
+    
+            user = get_user_by_id(data['author_id'])
+            data['author_name'] = user['username']
+            data['post_date'] = str(date.today())
+
+            if add_comment(recipe_id, data):
+                return jsonify({'success': 'added comment to recipe succesfully!'})
+            else:
+                return jsonify({'error': 'Error in adding the comment to the recipe!'})
+        
+        except Exception as e:
+            abort(400)
+    else:
+        abort(403)
+        
+
+
+    
