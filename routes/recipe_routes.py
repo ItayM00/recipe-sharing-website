@@ -49,7 +49,27 @@ def create_recipe_route():
             return redirect(url_for('home.landing_page_route'))
         
         return render_template('createRecipe.html', username=user['username'])
-    
+
+
+@recipe_bp.route('/recipes/<recipe_id>/delete', methods=['POST'])
+def delete_recipe_route(recipe_id):
+    if 'email' not in session:  # Check if the user is logged in
+        abort(401) # Unauthorized access to a pag'
+
+    if request.form.get("_method") == 'DELETE':
+        id = ObjectId(recipe_id)
+        result = delete_recipe(id)
+
+        if result:
+            return redirect(url_for('recipe.all_recipes_route'))
+        else:
+            abort(400) # Bad request (e.g., recipe not found)
+    else:
+        abort(400)  # Invalid method override
+        
+        
+
+
 
 @recipe_bp.route('/recipes')
 def all_recipes_route():
@@ -70,8 +90,13 @@ def recipe_route(recipe_id):
 
     if recipe == None:
         abort(404) # 'error': 'Recipe not found'
+
+    isCreator = False
+    connected_user = get_user_by_email(session['email'])
+    if connected_user['_id'] == recipe['creator_id']:
+        isCreator = True
     
-    return render_template('view-recipe.html', recipe=recipe)
+    return render_template('view-recipe.html', recipe=recipe, isCreator=isCreator, connected_user=connected_user)
 
 
 @recipe_bp.route('/api/recipes', methods=['GET'])
