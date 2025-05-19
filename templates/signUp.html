@@ -16,14 +16,14 @@
         <div class="CenterFlex main">
             <div class="form-div">
                 <div class="title">Sign Up</div>
-                <form id="signupForm" action="{{ url_for('user.signUp_route') }}" method="post">
+                <form id="signupForm">
                     <div class="in-form">
                         <div>Username:</div>
-                        <input id="username_entry" type="text" name="username_entry" placeholder="username" required>
+                        <input id="username_entry" type="text" name="username_entry" placeholder="username" autocomplete="off" required>
                     </div>
                     <div class="in-form">
                         <div>Email:</div>
-                        <input id="email_entry" type="email" name="email_entry" placeholder="email" required>
+                        <input id="email_entry" type="email" name="email_entry" placeholder="email" autocomplete="off" required>
                     </div>
                     <div class="in-form">
                         <div>Birthdate:</div>

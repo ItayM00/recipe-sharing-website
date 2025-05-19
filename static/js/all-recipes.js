@@ -39,7 +39,7 @@ function populateRecipes(recipes){
         recipeElement.classList.add('recipe-card');
         recipeElement.innerHTML = `
             <a class="card" href="/recipes/${recipe._id}">
-                <img src="" alt="${recipe.title}">
+                <img src="${recipe.picture}" alt="recipe pic">
                 <h2>${recipe.title}</h2>
                 <div class="desc">
                     <div class="creator">${recipe.creator_name}</div>

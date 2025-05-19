@@ -16,7 +16,7 @@
         <div class="CenterFlex main">
             <div class="form-div">
                 <div class="title">Login</div>
-                <form action="{{ url_for('user.login_route') }}" method="post">
+                <form id="login-form">
                     <div class="in-form">
                         <div>Username:</div>
                         <input type="text" name="username_entry" placeholder="username" autocomplete="off" required>
@@ -24,6 +24,10 @@
                     <div class="in-form">
                         <div>password:</div>
                         <input type="password" name="password_entry" placeholder="password" autocomplete="off" required/>
+                    </div>
+                    <div class="in-form error-div">
+                        <div>Notice!</div>
+                        <div id="message"></div>
                     </div>
                     <div class="CenterFlex submit-div"><input type="submit" value="submit" placeholder="Sign in"></div>
                 </form>

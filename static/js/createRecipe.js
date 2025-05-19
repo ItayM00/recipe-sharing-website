@@ -3,6 +3,7 @@ const title = document.querySelector("#title");
 const category = document.querySelector("#categorySelect");
 const description = document.querySelector("#description");
 const instructions = document.querySelector("#instructions");
+const pic = document.querySelector("#picture-input");
 
 
 // function to summerize all the ingredients rows to 
@@ -36,13 +37,20 @@ function summarizeIngredients() {
 // function to send the recipe data through the API to backend
 function sendData() {
     let summary = summarizeIngredients();
+    let url = pic.value;
 
     if (!summary) {
         return;
     }
 
+    if(!isValidUrl(url) || !isSafeUrl(url) || !isPictureUrl(url)){
+        url = '';
+        console.log('empty url');
+    }
+
     dataObj = {
         'title': title.value,
+        'picture': url,
         'category': category.value.toLowerCase(),
         'ingredients': summary.ingredients,
         'sizes': summary.sizes,
@@ -134,4 +142,26 @@ function removeIngredient(button) {
     if (ingredientDiv) {
         ingredientDiv.remove();
     }
+}
+
+function isValidUrl(url){
+    try {
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+function isSafeUrl(input){
+    try {
+        const url = new URL(input);
+        return ['http:', 'https:'].includes(url.protocol);
+    } catch (error) {
+        return false;
+    }
+}
+
+function isPictureUrl(url){
+    return (url.includes('.jpg') || url.includes('.png'));
 }

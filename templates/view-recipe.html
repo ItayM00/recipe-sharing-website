@@ -16,9 +16,10 @@
             <nav>
                 <ul class="nav_links">
                     <li><a href="{{ url_for('home.home_route') }}">Home</a></li>
-                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">Recipes</a></li>
+                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">All Recipes</a></li>
+                    <li><a href="">Favorites</a></li>
+                    <li><a href="{{ url_for('recipe.create_recipe_route') }}">Add Recipe</a></li>
                     <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
                 </ul>
             </nav>
             <a href="{{ url_for('recipe.all_recipes_route') }}" class="cta" id="back-bt"><span>Back</span><i class="fa fa-mail-reply"></i></a>
@@ -30,7 +31,6 @@
                 <div class="recipe-meta">
                     <span>Author: {{ recipe.creator_name}}</span>
                     <span>Posted at: {{ recipe.create_date }}</span>
-                    <span>Cook Time: 30 mins</span>
                 </div>
 
                 <div class="ingredients-section">
@@ -49,7 +49,9 @@
                 </div>
             </div>
 
-            <div class="recipe-image-placeholder"></div>
+            <div class="recipe-image-placeholder">
+                <img class="recipe-image" src="{{ recipe.picture }}" alt="recipe pic">
+            </div>
         </div>
 
         <div class="comments-section">
@@ -65,12 +67,20 @@
         <div class="add-comment-section">
             <h3 class="add-comment-title">Leave a Comment</h3>
             <input type="hidden" id="recipe-id" value="{{ recipe._id }}">
-            <input type="hidden" id="user-id" value="{{ recipe.creator_id }}">
+            <input type="hidden" id="user-id" value="{{ connected_user._id }}">
             <div class="comment-form">
                 <textarea id="comment-text" placeholder="Your comment here..."></textarea>
                 <button type="submit" id="post-bt">Post Comment</button>
             </div>
         </div>
+
+        {% if isCreator == True %}
+            <form class="delete-bt" method="POST" action="/recipes/{{ recipe._id }}/delete" onsubmit="return confirm('Are you sure you want to delete this recipe?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <h2 class="comments-title">Delete Recipe</h2>
+                <button type="submit">Delete</button>
+            </form>
+        {% endif %}
     </div>
     
 </body>
