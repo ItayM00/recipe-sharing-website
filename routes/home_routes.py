@@ -25,3 +25,8 @@ def home_route():
 @home_bp.route('/')
 def landing_page_route():
     return render_template('landingPage.html')
+
+
+@home_bp.route('/about')
+def about_route():
+    return render_template('about.html')

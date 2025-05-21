@@ -5,6 +5,7 @@
 
 from flask import Blueprint, redirect, url_for, request, render_template, session, jsonify, abort
 from models.user_model import *
+from datetime import date
 
 user_bp = Blueprint("user", __name__)
 
@@ -33,6 +34,10 @@ def signUp_route():
         user['email'] =  request.form['email_entry']
         user['password'] = request.form['password_entry']
         user['birthdate'] = request.form['date_entry']
+        user['profile_pic'] = '' 
+        user['followers'] = [] 
+        user['join_date'] = str(date.today())
+        user['bio'] = ''
         
         if register_user(user):
             session.pop('email', None)
