@@ -19,7 +19,7 @@
                     <li><a href="{{ url_for('recipe.all_recipes_route') }}">All Recipes</a></li>
                     <li><a href="">Favorites</a></li>
                     <li><a href="{{ url_for('recipe.create_recipe_route') }}">Add Recipe</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="{{ url_for('home.about_route') }}">About</a></li>
                 </ul>
             </nav>
             <a href="{{ url_for('recipe.all_recipes_route') }}" class="cta" id="back-bt"><span>Back</span><i class="fa fa-mail-reply"></i></a>

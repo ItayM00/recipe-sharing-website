@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Master</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}"> 
+</head>
+<body>
+    <header>
+            <img class="logo" src="" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="{{ url_for('home.home_route') }}">Home</a></li>
+                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">All Recipes</a></li>
+                    <li><a href="">Favorites</a></li>
+                    <li><a href="{{ url_for('recipe.create_recipe_route') }}">Add Recipe</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('home.home_route') }}" class="cta" id="back-bt"><span>Back</span></a>
+    </header>
+
+    <main>
+        <section class="hero-about">
+            <div class="container">
+                <h2>Welcome to Recipe Master!</h2>
+                <p>At Recipe Master, our mission is to be your ultimate resource for delicious, easy-to-follow recipes that make home cooking enjoyable for everyone</p>
+                <p>We created this platform because we believe that everyone deserves access to simple, nutritious, and inspiring meals—without the stress. Our goal is to provide a seamless and valuable experience that helps you cook with confidence, explore new flavors, and bring joy to your kitchen every day.</p>
+            </div>
+        </section>
+
+        <section class="what-we-offer">
+            <div class="container">
+                <h2>What You'll Find Here</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80" alt="Feature Icon 1">
+                        <h3>[Feature 1 Title]</h3>
+                        <p>Discover **[describe a key offering or type of content, e.g., "hundreds of tested recipes, from quick weeknight meals to gourmet desserts," "intuitive tools for task tracking, team collaboration, and deadline management," "in-depth reviews, author interviews, and personalized reading recommendations"]**.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80" alt="Feature Icon 2">
+                        <h3>[Feature 2 Title]</h3>
+                        <p>Benefit from **[describe another key offering or unique aspect, e.g., "step-by-step cooking guides and video tutorials for all skill levels," "real-time updates and customizable dashboards to keep your projects on track," "community forums where you can discuss books and share your thoughts"]**.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80" alt="Feature Icon 3">
+                        <h3>[Feature 3 Title]</h3>
+                        <p>Access **[describe a third significant offering or advantage, e.g., "our curated collection of healthy meal plans and dietary tips," "secure cloud storage for all your project documents and files," "exclusive early access to new releases and special literary events"]**.</p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="our-values">
+            <div class="container">
+                <h2>Our Guiding Principles</h2>
+                <div class="values-list">
+                    <div class="value-item">
+                        <h4>Accessibility</h4>
+                        <p>We believe valuable information and tools should be available to everyone, regardless of their background or technical skill.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Quality & Accuracy</h4>
+                        <p>We are committed to providing well-researched, reliable, and high-quality content and services.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Community</h4>
+                        <p>We foster a supportive environment where users can learn, share, and grow together.</p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Recipe Master. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
