@@ -9,15 +9,66 @@
 </head>
 <body>
 
-    <h1>Hello {{ name }}</h1>
-    <br>
-    <a href="{{ url_for('home.home_route') }}">back to home</a>
-    <br>
-    <form action="{{ url_for('user.logout_route') }}" method="post">
-        <button type="submit">Logout</button>
-    </form>
-    <br>
-    <a href="">delete user</a>
+    <header>
+            <img class="logo" src="" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="{{ url_for('home.home_route') }}">Home</a></li>
+                    <li><a href="{{ url_for('recipe.all_recipes_route') }}">All Recipes</a></li>
+                    <li><a href="">Favorites</a></li>
+                    <li><a href="{{ url_for('recipe.create_recipe_route') }}">Add Recipe</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </nav>
+            <form action="{{ url_for('user.logout_route') }}" method="post">
+                <button class="cta" type="submit">Logout</button>
+            </form>
+    </header>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-image-placeholder"></div>
+            <div class="profile-info">
+                <h1 class="profile-name">{{ name }}</h1>
+                <h2 class="profile-username">@username</h2>
+                <p class="profile-bio">A slightly longer and more detailed biography of the user. They might mention their interests, skills, or what they like to cook.</p>
+            </div>
+        </div>
+
+        <div class="profile-navigation">
+            <button>Overview</button>
+            <button>Recipes</button>
+            <button>Following</button>
+            <button>Followers</button>
+            <button style="margin-left: auto;">Edit</button>
+        </div>
+
+        <div class="content-sections">
+            <div class="main-content">
+                <h2 class="section-title">Featured Recipes</h2>
+                <div class="content-card-placeholder"></div>
+                <div class="content-card-placeholder"></div>
+
+                <h2 class="section-title">Recently Added</h2>
+                <div class="content-card-placeholder"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Highlights</h3>
+                    <div class="sidebar-item-placeholder"></div>
+                    <div class="sidebar-item-placeholder"></div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Following</h3>
+                    <div class="sidebar-item-placeholder"></div>
+                    <div class="sidebar-item-placeholder"></div>
+                    <div class="sidebar-item-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
